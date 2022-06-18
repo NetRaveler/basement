@@ -42,3 +42,6 @@ function foodTable() {
         foodDisplay.appendChild(shelfLife);
     }
 }
+
+let corn = new FoodItem(100, "corn", "vegetable", "desert", "grassland");
+addToFood(corn);
