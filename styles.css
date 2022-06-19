@@ -1,27 +1,30 @@
-<style>
-body {
+<style>body {
     background: #ccc;
     font-family: 'Roboto', sans-serif;
 }
 
 h2 {
     font-size: 24px;
-  }
+}
 
 
 /* Setting Tabs */
+
 .tabs {
     display: flex;
     flex-wrap: wrap;
     max-width: 95%;
-    margin: 50px ;
+    margin: 50px;
     padding: 25px;
 }
+
 .tabs input[type="radio"] {
     display: none;
 }
 
+
 /* Inactive Tabs */
+
 .tabs label {
     padding: 15px;
     background: #e2e2e2;
@@ -29,7 +32,9 @@ h2 {
     font-size: 20px;
 }
 
+
 /* Active Tab */
+
 .tabs .tab {
     width: 100%;
     padding: 20px;
@@ -38,22 +43,23 @@ h2 {
     display: none;
     white-space: nowrap;
     overflow-x: scroll;
-   
 }
 
-.tabs input[type='radio']:checked + label + .tab {
+.tabs input[type='radio']:checked+label+.tab {
     display: block;
 }
 
-.tabs input[type="radio"]:checked + label {
+.tabs input[type="radio"]:checked+label {
     background: rgb(230, 171, 45);
 }
 
+
 /* Food Table Header */
+
 .foodheader {
     display: flex;
     flex-direction: row;
-    width: 100%;
+    //width: 100%;
     justify-content: left;
 }
 
@@ -61,7 +67,7 @@ h2 {
     border: 1px solid black;
     width: 160px;
     font-size: 28px;
-    font-style:italic;
+    font-style: italic;
     font-weight: bold;
     display: flex;
     justify-content: center;
@@ -70,14 +76,14 @@ h2 {
     background-color: #ffffff;
 }
 
+
 /* Table settings */
+
 .odd {
     display: flex;
     flex-direction: row;
     justify-content: left;
     width: 100%;
-    
-    
 }
 
 .odd p {
@@ -89,7 +95,6 @@ h2 {
     margin-top: 0px;
     margin-bottom: 0px;
     background-color: #a7a4a1;
-    
 }
 
 .even {
@@ -110,10 +115,11 @@ h2 {
     background-color: #585858;
 }
 
-.green{
-    color:green;
+.green {
+    color: green;
 }
-.red{
+
+.red {
     color: red;
 }
 

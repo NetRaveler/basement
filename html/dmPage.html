@@ -8,54 +8,90 @@
     <title>Document</title>
     <link rel="stylesheet" href="../styles.css">
     <script src="../script/main1.js"></script>
-    
-    
-    
-    
+
+
+
+
 
 </head>
 
 <body onload="foodTable()">
     <!-- // Accessing Master list // Several dropdown menus to determine DB query // roll dice or randomly determine animals available for hunting /* Cooking vegetable object: biome -->
-<!-- Tab System-->
-    
+    <!-- Tab System-->
+
     <div class="tabs">
 
-      <!-- Vegetables-->
+        <!-- Vegetables-->
         <input type="radio" id="tabveg" name="tabs" checked="checked">
         <label for="tabveg">Vegetables</label>
         <div class="tab">
-         
-          <h2>Master list of all vegetables.</h2>
-          <div class="foodheader"><p>Vegetable</p><p>Shelf Life</p><p>Arctic</p><p>Coastal</p><p>Desert</p><p>Forest</p><p>Grassland</p><p>Hill</p><p>Mountain</p>
-            <p>Swamp</p><p>Underdark</p><p>Urban</p></div>
-          <div id="foodDisplayVeg">
-          </div>
+
+            <h2>Master list of all vegetables.</h2>
+            <div class="foodheader">
+                <p>Vegetable</p>
+                <p>Shelf Life</p>
+                <p id="0" onclick="tableSort(this.id)">Arctic</p>
+                <p id="1" onclick="tableSort(this.id)">Coastal</p>
+                <p id="2" onclick="tableSort(this.id)">Desert</p>
+                <p id="3" onclick="tableSort(this.id)">Forest</p>
+                <p id="4" onclick="tableSort(this.id)">Grassland</p>
+                <p id="5" onclick="tableSort(this.id)">Hill</p>
+                <p id="6" onclick="tableSort(this.id)">Mountain</p>
+                <p id="7" onclick="tableSort(this.id)">Swamp</p>
+                <p id="8" onclick="tableSort(this.id)">Underdark</p>
+                <p id="9" onclick="tableSort(this.id)">Urban</p>
+            </div>
+            <div id="foodDisplayVeg">
+            </div>
         </div>
 
-    <!-- Fruit-->
+        <!-- Fruit-->
         <input type="radio" id="tabfruit" name="tabs">
         <label for="tabfruit">Fruit</label>
         <div class="tab">
             <h2>Master list of all fruit.</h2>
-            <div class="foodheader"><p>Fruit</p><p>Shelf Life</p><p>Arctic</p><p>Coastal</p><p>Desert</p><p>Forest</p><p>Grassland</p><p>Hill</p><p>Mountain</p>
-              <p>Swamp</p><p>Underdark</p><p>Urban</p></div>
+            <div class="foodheader">
+                <p>Fruit</p>
+                <p>Shelf Life</p>
+                <p>Arctic</p>
+                <p>Coastal</p>
+                <p>Desert</p>
+                <p>Forest</p>
+                <p>Grassland</p>
+                <p>Hill</p>
+                <p>Mountain</p>
+                <p>Swamp</p>
+                <p>Underdark</p>
+                <p>Urban</p>
+            </div>
             <div id="foodDisplayFruit">
             </div>
-          </div>
+        </div>
 
-    <!-- Hunting-->
+        <!-- Hunting-->
         <input type="radio" id="tabhunt" name="tabs">
         <label for="tabhunt">Hunting</label>
         <div class="tab">
             <h2>Master list of all hunting.</h2>
-            <div class="foodheader"><p>Hunting</p><p>Shelf Life</p><p>Arctic</p><p>Coastal</p><p>Desert</p><p>Forest</p><p>Grassland</p><p>Hill</p><p>Mountain</p>
-              <p>Swamp</p><p>Underdark</p><p>Urban</p></div>
+            <div class="foodheader">
+                <p>Hunting</p>
+                <p>Shelf Life</p>
+                <p>Arctic</p>
+                <p>Coastal</p>
+                <p>Desert</p>
+                <p>Forest</p>
+                <p>Grassland</p>
+                <p>Hill</p>
+                <p>Mountain</p>
+                <p>Swamp</p>
+                <p>Underdark</p>
+                <p>Urban</p>
+            </div>
             <div id="foodDisplayHunting">
             </div>
-          </div>
-    
-      </div>
+        </div>
+
+    </div>
 
 
 </body>
