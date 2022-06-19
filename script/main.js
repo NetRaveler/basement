@@ -4,9 +4,6 @@
 // weight
 let food = [];
 
-
-
-
 // Food Item Factory Funciton
 const FoodItem = function(shelfLife, name, type, ...args) {
     this.type = type;
@@ -15,6 +12,13 @@ const FoodItem = function(shelfLife, name, type, ...args) {
     this.biomes = args;
 
 };
+
+// vegetable list
+let artichokes = new FoodItem(100, "Artichokes", "Vegetable", "Grassland", "Urban");
+addToFood(artichokes);
+let eggplants = new FoodItem(100, "Eggplants", "Vegetable", "Desert", "Grassland", "Hill" ,"Mountain", "Urban");
+addToFood(eggplants);
+
 // adds a FoodItem object to the food array
 function addToFood(product) {
     food.splice(1, 0, product);
@@ -24,13 +28,14 @@ function addToFood(product) {
 
 function foodTable() {
     // loops through food array
+
     let foodDisplay = document.getElementById("foodDisplay");
 
-    let type = document.createElement("p");
-    let name = document.createElement("p");
-    let shelfLife = document.createElement("p");
-
     for (i = 0; i < food.length; i++) {
+        
+        let type = document.createElement("p");
+        let name = document.createElement("p");
+        let shelfLife = document.createElement("p");
 
         type.innerHTML = food[i].type;
         foodDisplay.appendChild(type);
@@ -43,5 +48,3 @@ function foodTable() {
     }
 }
 
-let corn = new FoodItem(100, "corn", "vegetable", "desert", "grassland");
-addToFood(corn);

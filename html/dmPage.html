@@ -6,10 +6,57 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../script/main1.js"></script>
+    
+    
+    
+    
+
 </head>
 
-<body>
-    // Accessing Master list // Several dropdown menus to determine DB query // roll dice or randomly determine animals available for hunting /* Cooking vegetable object: biome
+<body onload="foodTable()">
+    <!-- // Accessing Master list // Several dropdown menus to determine DB query // roll dice or randomly determine animals available for hunting /* Cooking vegetable object: biome -->
+<!-- Tab System-->
+    
+    <div class="tabs">
+
+      <!-- Vegetables-->
+        <input type="radio" id="tabveg" name="tabs" checked="checked">
+        <label for="tabveg">Vegetables</label>
+        <div class="tab">
+         
+          <h2>Master list of all vegetables.</h2>
+          <div class="foodheader"><p>Vegetable</p><p>Shelf Life</p><p>Arctic</p><p>Coastal</p><p>Desert</p><p>Forest</p><p>Grassland</p><p>Hill</p><p>Mountain</p>
+            <p>Swamp</p><p>Underdark</p><p>Urban</p></div>
+          <div id="foodDisplayVeg">
+          </div>
+        </div>
+
+    <!-- Fruit-->
+        <input type="radio" id="tabfruit" name="tabs">
+        <label for="tabfruit">Fruit</label>
+        <div class="tab">
+            <h2>Master list of all fruit.</h2>
+            <div class="foodheader"><p>Fruit</p><p>Shelf Life</p><p>Arctic</p><p>Coastal</p><p>Desert</p><p>Forest</p><p>Grassland</p><p>Hill</p><p>Mountain</p>
+              <p>Swamp</p><p>Underdark</p><p>Urban</p></div>
+            <div id="foodDisplayFruit">
+            </div>
+          </div>
+
+    <!-- Hunting-->
+        <input type="radio" id="tabhunt" name="tabs">
+        <label for="tabhunt">Hunting</label>
+        <div class="tab">
+            <h2>Master list of all hunting.</h2>
+            <div class="foodheader"><p>Hunting</p><p>Shelf Life</p><p>Arctic</p><p>Coastal</p><p>Desert</p><p>Forest</p><p>Grassland</p><p>Hill</p><p>Mountain</p>
+              <p>Swamp</p><p>Underdark</p><p>Urban</p></div>
+            <div id="foodDisplayHunting">
+            </div>
+          </div>
+    
+      </div>
+
 
 </body>
 
