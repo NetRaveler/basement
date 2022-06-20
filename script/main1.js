@@ -13,32 +13,6 @@ const FoodItem = function(shelfLife, name, type, ...args) {
     this.biomes = args;
 
 };
-// EVENT LISTENERS
-
-// Sorting function
-// food[i].biomes[j]
-function tableSort(biomeNum) {
-
-    for (i = 0; i < food.length; i++) {
-        if (food[i].biomes[biomeNum] == "y") {
-            // food.move(food[i], food[i])
-            move(food, i);
-
-        }
-
-    }
-    foodTable();
-}
-
-function move(arr, oldLocation) {
-    // Splice out our array item and add it to the front of the array
-    let mover = arr.splice(oldLocation, 1);
-    console.log(mover);
-
-    arr.splice(0, 0, mover[0]);
-    return arr;
-}
-
 
 // vegetable list - Shelflife, NAME, TYPE, Arctic, Coastal, Desert, Forest, Grassland, Hill, Mountain, Swamp, Underdark, Urban
 let artichokes = new FoodItem(100, "Artichokes", "Vegetable", "n", "n", "n", "n", "y", "n", "n", "n", "n", "y");
@@ -118,6 +92,73 @@ function addToFood(product) {
 
 }
 
+// Listening for Sorting Events
+
+window.onload = function() {
+    document.getElementById("0").addEventListener("click", function() {
+        tableSort(this.id)
+    });
+    document.getElementById("1").addEventListener("click", function() {
+        tableSort(this.id)
+    });
+    document.getElementById("2").addEventListener("click", function() {
+        tableSort(this.id)
+    });
+    document.getElementById("3").addEventListener("click", function() {
+        tableSort(this.id)
+    });
+    document.getElementById("4").addEventListener("click", function() {
+        tableSort(this.id)
+    });
+    document.getElementById("5").addEventListener("click", function() {
+        tableSort(this.id)
+    });
+    document.getElementById("6").addEventListener("click", function() {
+        tableSort(this.id)
+    });
+    document.getElementById("7").addEventListener("click", function() {
+        tableSort(this.id)
+    });
+    document.getElementById("8").addEventListener("click", function() {
+        tableSort(this.id)
+    });
+    document.getElementById("9").addEventListener("click", function() {
+        tableSort(this.id)
+    });
+    document.getElementById("12").addEventListener("click", function() {
+        alphaSort(this.id)
+    });
+    // Generate Food table when page is loaded
+    foodTable()
+}
+
+// Sort food table when Listening even is triggered
+
+function aphaSort(clicked_id) {
+
+
+}
+
+
+function tableSort(clicked_id) {
+    for (i = 0; i < food.length; i++) {
+        if (food[i].biomes[clicked_id] == "y") {
+
+            move(food, i);
+        }
+
+    }
+    // Rebuild food table based on sorting 
+    foodTable();
+}
+// Reorder food arry to generate table
+
+function move(arr, oldLocation) {
+    let mover = arr.splice(oldLocation, 1);
+    arr.splice(0, 0, mover[0]);
+    return arr;
+}
+
 
 function foodTable() {
 
@@ -125,9 +166,9 @@ function foodTable() {
     let foodDisplayVeg = document.getElementById("foodDisplayVeg");
     let foodDisplayFruit = document.getElementById("foodDisplayFruit");
     let foodDisplayHunting = document.getElementById("foodDisplayHunting");
-    foodDisplayVeg.innerHTML = "";
-    foodDisplayFruit.innerHTML = "";
-    foodDisplayHunting.innerHTML = "";
+    foodDisplayVeg.innerHTML = ""
+    foodDisplayFruit.innerHTML = ""
+    foodDisplayHunting.innerHTML = ""
     for (i = 0; i < food.length; i++) {
 
         let table = document.createElement("table");
@@ -135,9 +176,11 @@ function foodTable() {
         let type = document.createElement("p");
         let shelfLife = document.createElement("p");
 
+
         // loop for table settings
         if (i % 2 == 0) {
             table.classList.add("odd");
+
         } else {
             table.classList.add("even");
         }
