@@ -178,15 +178,28 @@ function foodTable() {
 
 
         // loop for table settings
+<<<<<<< Updated upstream
         if (i % 2 == 0) {
             table.classList.add("odd");
 
         } else {
             table.classList.add("even");
         }
+=======
+        // if (i % 2 == 0) {
+        //     table.classList.add("odd");
+        // } else {
+        //     table.classList.add("even");
+        // }
+>>>>>>> Stashed changes
 
         // loop to check for Vegetables
         if (food[i].type == "Vegetable") {
+            if (i % 2 == 0) {
+                table.classList.add("odd");
+            } else {
+                table.classList.add("even");
+            }
             name.innerHTML = food[i].name;
             table.appendChild(name);
 
@@ -212,6 +225,11 @@ function foodTable() {
         }
 
         // loop to check for Fruit
+        if (i % 2 == 0) {
+            table.classList.add("odd");
+        } else {
+            table.classList.add("even");
+        }
         if (food[i].type == "Fruit") {
             name.innerHTML = food[i].name;
             table.appendChild(name);
@@ -238,6 +256,11 @@ function foodTable() {
         }
 
         // loop to check for Hunting
+        if (i % 2 == 0) {
+            table.classList.add("odd");
+        } else {
+            table.classList.add("even");
+        }
         if (food[i].type == "Hunting") {
             name.innerHTML = food[i].name;
             table.appendChild(name);
