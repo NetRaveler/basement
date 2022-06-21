@@ -1,0 +1,305 @@
+    body {
+        background: rgb(138, 137, 116);
+        font-family: 'Roboto', sans-serif;
+        padding-top: 75px;
+    }
+    
+    h2 {
+        font-size: 24px;
+    }
+    /* Book */
+    
+    .bookcontent {
+        min-width: 1200px;
+        width: 100%;
+        height: 100%;
+        background-image: url("images/book1.png");
+        background-repeat: no-repeat;
+        background-position: 0px 0px;
+        background-size: 97% 100%;
+        height: 85vh;
+        z-index: 1;
+        position: absolute;
+        top: 105px;
+    }
+    
+    .booksides {
+        min-width: 1200px;
+        width: 100%;
+        display: flex;
+    }
+    
+    .bookleft {
+        min-width: 600px;
+        width: 50%;
+        position: relative;
+        z-index: 2;
+        display: flex;
+        justify-content: center
+    }
+    
+    .bookright {
+        min-width: 600px;
+        width: 50%;
+        position: relative;
+        z-index: 2;
+    }
+    /* Setting Tabs */
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    .tabs {
+        min-width: 1200px;
+        width: 100%;
+        display: flex;
+    }
+    
+    .righttabs {
+        flex-basis: 50%;
+        margin-bottom: 30px;
+    }
+    
+    .lefttabs {
+        flex-basis: 50%;
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: right;
+    }
+    /*RIGHT SIDE */
+    
+    nav,
+    .content {
+        min-width: 600px;
+    }
+    /* Setting Content in Tabs */
+    
+    .content {
+        min-height: 74vh;
+        max-height: 74vh;
+        width: 86%;
+        display: block;
+        margin-bottom: 1em;
+        color: rgb(0, 0, 0);
+        font-size: 16px;
+        overflow: scroll;
+    }
+    /* Styling the RIGHT tabs */
+    
+    nav {
+        position: relative;
+        padding-left: 1.3em;
+    }
+    
+    nav>a {
+        position: relative;
+        width: 10em;
+        display: inline-block;
+        padding: 0.7em 2em 0.5em;
+        color: #fff;
+        text-decoration: none;
+        margin: 0 -0.3em;
+    }
+    
+    nav>a::before {
+        border: 0.2em none #fff;
+    }
+    
+    nav a::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        border-bottom: none;
+        border-radius: 0.4em 0.4em 0 0;
+        background: #4cb47d;
+        transform: scale(1.2, 1.3) perspective(0.5em) rotateX(5deg);
+        transform-origin: bottom;
+    }
+    
+    nav a.active {
+        z-index: 2;
+    }
+    
+    nav a.active::before {
+        background-color: #2e6d4b;
+        margin-bottom: -0.08em;
+    }
+    /*LEFT SIDE 
+
+
+    /* Styling the LEFT tabs */
+    
+    nav1,
+    .contentleft {
+        min-width: 600px;
+    }
+    
+    .contentleft {
+        min-height: 75vh;
+        max-height: 75vh;
+        width: 50%;
+        display: block;
+        margin-bottom: 1em;
+        color: rgb(0, 0, 0);
+        font-size: 16px;
+    }
+    
+    nav1 {
+        position: relative;
+        padding-left: 1.3em;
+    }
+    
+    nav1>a {
+        position: relative;
+        width: 10em;
+        display: inline-block;
+        padding: 0.7em 2em 0.5em;
+        color: #fff;
+        text-decoration: none;
+        margin: 0 -0.3em;
+    }
+    
+    nav1>a::before {
+        border: 0.2em none #fff;
+    }
+    
+    nav1 a::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        border-bottom: none;
+        border-radius: 0.4em 0.4em 0 0;
+        background: #ecba8a;
+        transform: scale(1.2, 1.3) perspective(0.5em) rotateX(5deg);
+        transform-origin: bottom;
+    }
+    
+    nav1 a.active {
+        z-index: 2;
+    }
+    
+    nav1 a.active::before {
+        background-color: #be721a;
+        margin-bottom: -0.08em;
+    }
+    /* Food Table Header */
+    
+    .foodheader {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: left;
+        position: sticky;
+        top: 30px;
+        z-index: 3;
+    }
+    
+    .foodheader p {
+        border: 1px solid black;
+        min-width: 98px;
+        font-size: 15px;
+        font-style: italic;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        color: black;
+        background-color: #ffffff;
+    }
+    
+    p.title {
+        position: sticky;
+        left: 0px;
+    }
+    /* Table settings */
+    
+    .odd {
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        width: 100%;
+    }
+    
+    .odd p {
+        border: 1px solid black;
+        min-width: 98px;
+        font-size: 14px;
+        display: flex;
+        justify-content: center;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        background-color: #a7a4a1;
+    }
+    
+    .even {
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        width: 100%;
+    }
+    
+    .even p {
+        border: 1px solid black;
+        min-width: 98px;
+        font-size: 14px;
+        display: flex;
+        justify-content: center;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        background-color: #585858;
+    }
+    /* Zoom */
+    
+    .zoom {
+        width: 85%;
+        display: flex;
+        justify-content: right;
+    }
+    
+    .zoomin {
+        background-image: url("images/book1.png");
+        background-repeat: no-repeat;
+        background-position: 0px -30px;
+        background-size: 97% 100%;
+        height: 85vh;
+        padding-left: 80px;
+        width: 100%;
+        min-width: 1200px;
+        position: absolute;
+    }
+    /* DC EXAMPLES TABLES */
+    
+    .dcetable {
+        width: 250px;
+        padding-left: 15px;
+    }
+    
+    .dcetableheader {
+        font-weight: bold;
+    }
+    
+    .dcetabletitle {
+        padding-left: 15px;
+        font-weight: bold;
+    }
+    
+    .dcetableg {
+        padding-left: 15px;
+        background: rgb(212, 218, 184);
+    }
+    
+    .dcetablen {
+        padding-left: 15px;
+    }
