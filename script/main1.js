@@ -96,51 +96,51 @@ function addToFood(product) {
 
 window.onload = function() {
     document.getElementById("0").addEventListener("click", function() {
-        tableSort(this.id)
+        biomeSort(this.id)
     });
     document.getElementById("1").addEventListener("click", function() {
-        tableSort(this.id)
+        biomeSort(this.id)
     });
     document.getElementById("2").addEventListener("click", function() {
-        tableSort(this.id)
+        biomeSort(this.id)
     });
     document.getElementById("3").addEventListener("click", function() {
-        tableSort(this.id)
+        biomeSort(this.id)
     });
     document.getElementById("4").addEventListener("click", function() {
-        tableSort(this.id)
+        biomeSort(this.id)
     });
     document.getElementById("5").addEventListener("click", function() {
-        tableSort(this.id)
+        biomeSort(this.id)
     });
     document.getElementById("6").addEventListener("click", function() {
-        tableSort(this.id)
+        biomeSort(this.id)
     });
     document.getElementById("7").addEventListener("click", function() {
-        tableSort(this.id)
+        biomeSort(this.id)
     });
     document.getElementById("8").addEventListener("click", function() {
-        tableSort(this.id)
+        biomeSort(this.id)
     });
     document.getElementById("9").addEventListener("click", function() {
-        tableSort(this.id)
+        biomeSort(this.id)
     });
     document.getElementById("12").addEventListener("click", function() {
         alphaSort(this.id)
     });
     // Generate Food table when page is loaded
-    foodTable()
+    foodTable();
 }
 
 // Sort food table when Listening even is triggered
 
-function aphaSort(clicked_id) {
+function aphaSort() {
 
 
 }
 
 
-function tableSort(clicked_id) {
+function biomeSort(clicked_id) {
     for (i = 0; i < food.length; i++) {
         if (food[i].biomes[clicked_id] == "y") {
 
@@ -178,20 +178,12 @@ function foodTable() {
 
 
         // loop for table settings
-<<<<<<< Updated upstream
         if (i % 2 == 0) {
             table.classList.add("odd");
 
         } else {
             table.classList.add("even");
         }
-=======
-        // if (i % 2 == 0) {
-        //     table.classList.add("odd");
-        // } else {
-        //     table.classList.add("even");
-        // }
->>>>>>> Stashed changes
 
         // loop to check for Vegetables
         if (food[i].type == "Vegetable") {

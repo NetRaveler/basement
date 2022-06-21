@@ -224,6 +224,9 @@ window.onload = function() {
     document.getElementById("212").addEventListener("click", function() {
         alphaSort(this.id)
     });
+    document.getElementById("submit").addEventListener("click", function() {
+        biomeCart();
+    });
     // Generate Food table when page is loaded
     foodTable()
 }
@@ -263,11 +266,34 @@ function biomeSort(clicked_id) {
 // Reorder food arry to generate table
 
 function move(arr, oldLocation) {
-    let mover = arr.splice(oldLocation, 1);
+    var mover = arr.splice(oldLocation, 1);
     arr.splice(0, 0, mover[0]);
-    return arr;
+    return arr, mover;
+
 }
 
+function randomGenerator(max) {
+
+    generatedNumber = Math.floor(Math.random() * max) + 1;
+
+    console.log(generatedNumber);
+}
+// Get a random selection of food Items in stated Biome
+// 
+function biomeCart() {
+    let dice = document.getElementById("selectDice");
+    let INDEX = dice.selectedIndex;
+    let biome = document.getElementById("selectBiome");
+    let type = document.getElementById("selectType");
+    let typeIndex = type.selectedIndex;
+    let biomeIndex = biome.selectedIndex;
+    console.log(biome[biomeIndex].value);
+    console.log(dice[INDEX].value);
+    console.log(type[typeIndex].value);
+
+    biomeSort(biome[biomeIndex].value);
+    console.log(mover);
+}
 
 function foodTable() {
 
@@ -404,14 +430,14 @@ function foodTable() {
 
     document.querySelector('#zoomin').addEventListener('click', () => {
         document.querySelector('#bookright').classList.add('zoomin');
-        document.querySelector('#bookleft').classList.add('pushback');
+
         document.getElementById('zoomout').style.visibility = 'visible';
         document.getElementById('zoomin').style.visibility = 'hidden';
 
     });
     document.querySelector('#zoomout').addEventListener('click', () => {
         document.querySelector('#bookright').classList.remove('zoomin');
-        document.querySelector('#bookleft').classList.remove('pushback');
+
         document.getElementById('zoomout').style.visibility = 'hidden';
         document.getElementById('zoomin').style.visibility = 'visible';
     });

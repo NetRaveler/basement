@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../styles1.css">
     <script src="../script/main2.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <!-- <script src="../script/numberGenerator.js"></script> -->
     <script src="../script/nav.js"></script>
 
 
@@ -167,28 +168,28 @@
             <div class="content" id="randomtab">
                 <h2>Generate a random table.</h2>
                 <form id="ranForm">
-                    <select name="biome">
+                    <select name="biome" id="selectBiome">
                         <option value="all">All</option>
-                        <option value="arctic">Arctic</option>
-                        <option value="coastal">Coastal</option>
-                        <option value="desert">Desert</option>
-                        <option value="forest">Forest</option>
-                        <option value="grassland">Grassland</option>
-                        <option value="hill">Hill</option>
-                        <option value="mountain">Mountain</option>
-                        <option value="swamp">Swamp</option>
-                        <option value="underdark">Underdark</option>
-                        <option value="urban">Urban</option>
+                        <option value="0">Arctic</option>
+                        <option value="1">Coastal</option>
+                        <option value="2">Desert</option>
+                        <option value="3">Forest</option>
+                        <option value="4">Grassland</option>
+                        <option value="5">Hill</option>
+                        <option value="6">Mountain</option>
+                        <option value="7">Swamp</option>
+                        <option value="8">Underdark</option>
+                        <option value="9">Urban</option>
                     </select>
 
-                    <select name="type">
+                    <select name="type" id="selectType">
                         <option value="all">All</option>
                         <option value="fruit">Fruit</option>
                         <option value="hunt">Hunting</option>
                         <option value="veg">Vegetables</option>
 
                     </select>
-                    <select name="dice">
+                    <select name="dice" id="selectDice">
                         <option value="d4">D4</option>
                         <option value="d6">D6</option>
                         <option value="d8" selected>D8</option>
@@ -196,11 +197,11 @@
                         <option value="d12">D12</option>
 
                     </select>
-                    <input type="button" id="submit" value="Generate Table">
+                    <input id="submit" value="Generate Table ">
 
                 </form>
 
-                <div id="foodDisplayrandom">
+                <div id="foodDisplayrandom ">
 
                 </div>
             </div>
