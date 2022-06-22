@@ -224,8 +224,44 @@ window.onload = function() {
     document.getElementById("212").addEventListener("click", function() {
         alphaSort(this.id)
     });
+    document.getElementById("300").addEventListener("click", function() {
+        biomeSort(this.id)
+    });
+    document.getElementById("301").addEventListener("click", function() {
+        biomeSort(this.id)
+    });
+    document.getElementById("302").addEventListener("click", function() {
+        biomeSort(this.id)
+    });
+    document.getElementById("303").addEventListener("click", function() {
+        biomeSort(this.id)
+    });
+    document.getElementById("304").addEventListener("click", function() {
+        biomeSort(this.id)
+    });
+    document.getElementById("305").addEventListener("click", function() {
+        biomeSort(this.id)
+    });
+    document.getElementById("306").addEventListener("click", function() {
+        biomeSort(this.id)
+    });
+    document.getElementById("307").addEventListener("click", function() {
+        biomeSort(this.id)
+    });
+    document.getElementById("308").addEventListener("click", function() {
+        biomeSort(this.id)
+    });
+    document.getElementById("309").addEventListener("click", function() {
+        biomeSort(this.id)
+    });
+    document.getElementById("312").addEventListener("click", function() {
+        alphaSort(this.id)
+    });
+    document.getElementById("313").addEventListener("click", function() {
+        typeSort(this.id)
+    });
     document.getElementById("submit").addEventListener("click", function() {
-        biomeCart();
+        randomCart();
     });
     // Generate Food table when page is loaded
     foodTable()
@@ -233,10 +269,23 @@ window.onload = function() {
 
 // Sort food table when Listening even is triggered
 function alphaSort() {
+
     vegfood.sort((a, b) => a.name.localeCompare(b.name));
     fruitfood.sort((a, b) => a.name.localeCompare(b.name));
     huntfood.sort((a, b) => a.name.localeCompare(b.name));
+    if (document.getElementById("selectSort").checked == true) {
+        randomByChoice.sort((a, b) => a.name.localeCompare(b.name));
+    }
     foodTable();
+    randomTable();
+}
+
+function typeSort() {
+
+    if (document.getElementById("selectSort").checked == true) {
+        randomByChoice.sort((a, b) => a.type.localeCompare(b.type));
+    }
+    randomTable();
 }
 
 // Sort biomes for ALL tables
@@ -260,6 +309,18 @@ function biomeSort(clicked_id) {
             move(huntfood, h);
         }
     }
+
+    if (document.getElementById("selectSort").checked == true) {
+
+        for (r = 0; r < randomByChoice.length; r++) {
+            if (randomByChoice[r].biomes[clicked_id - 300] == "y") {
+
+                move(randomByChoice, r);
+            }
+        }
+
+        randomTable();
+    }
     // Rebuild food table based on sorting 
     foodTable();
 }
@@ -280,20 +341,181 @@ function randomGenerator(max) {
 }
 // Get a random selection of food Items in stated Biome
 // 
-function biomeCart() {
-    let dice = document.getElementById("selectDice");
-    let INDEX = dice.selectedIndex;
-    let biome = document.getElementById("selectBiome");
-    let type = document.getElementById("selectType");
-    let typeIndex = type.selectedIndex;
-    let biomeIndex = biome.selectedIndex;
-    console.log(biome[biomeIndex].value);
-    console.log(dice[INDEX].value);
-    console.log(type[typeIndex].value);
 
-    biomeSort(biome[biomeIndex].value);
-    console.log(mover);
+
+let randomByChoice = [];
+let randomByBiome = [];
+let randomByType = [];
+
+function randomCart() {
+    randomByChoice = [];
+    randomByBiome = [];
+    randomByType = [];
+    let dice = document.getElementById("selectDice").value;
+    let INDEX = dice.selectedIndex;
+    let sort = document.getElementById("selectSort").checked;
+    let biome = document.getElementById("selectBiome").value;
+    let type = document.getElementById("selectType").value;
+
+    // Sort biomes by selected
+    if (biome != "all") {
+        for (h = 0; h < huntfood.length; h++) {
+            if (huntfood[h].biomes[biome] == "y") {
+                randomByBiome.splice(0, 0, huntfood[h]);
+            }
+        }
+        for (f = 0; f < fruitfood.length; f++) {
+            if (fruitfood[f].biomes[biome] == "y") {
+                randomByBiome.splice(0, 0, fruitfood[f]);
+            }
+        }
+
+        for (v = 0; v < vegfood.length; v++) {
+            if (vegfood[v].biomes[biome] == "y") {
+                randomByBiome.splice(0, 0, vegfood[v]);
+            }
+
+        }
+    } else if ((biome == "all")) {
+        for (h = 0; h < huntfood.length; h++) {
+            randomByBiome.splice(0, 0, huntfood[h]);
+
+        }
+        for (f = 0; f < fruitfood.length; f++) {
+            randomByBiome.splice(0, 0, fruitfood[f]);
+
+        }
+
+        for (v = 0; v < vegfood.length; v++) {
+            randomByBiome.splice(0, 0, vegfood[v]);
+        }
+    }
+    // Sort type by selected
+    if (type != "all") {
+        for (t = 0; t < randomByBiome.length; t++) {
+            if (randomByBiome[t].type == type) {
+                randomByType.splice(0, 0, randomByBiome[t]);
+
+            }
+        }
+    } else if ((type == "all")) {
+        for (t = 0; t < randomByBiome.length; t++) {
+            randomByType.splice(0, 0, randomByBiome[t]);
+
+
+        }
+    }
+    // Set size based on dice selected
+    randomByType.sort((() => Math.random() - 0.5));
+    low = Math.floor((randomByType.length / dice) - 1);
+    high = Math.ceil((randomByType.length / dice) + 1);
+
+    // if table data is less than dice and 
+    if (randomByType.length / dice < 1 && dice / randomByType.length > 1) {
+        randomByChoice = Array.from({ length: randomByType.length }, (_, idx) => randomByType[idx % randomByType.length]);
+    }
+    // if table data is more than dice
+    else {
+        randomByChoice = Array.from({ length: dice }, (_, idx) => randomByType[idx % randomByType.length]);
+    }
+
+    randomTable()
 }
+
+// Generate Random Table
+function randomTable() {
+    let dice = document.getElementById("selectDice").value;
+
+    // if table data is less than dice, Set loop counter
+
+    if (randomByType.length / dice < 1 && dice / randomByType.length > 1) {
+        count = randomByChoice.length;
+        // if table data is more than dice, Set Loop Counter
+    } else {
+        count = dice;
+    }
+    foodDisplayRandom.innerHTML = "";
+
+    for (i = 0; i < count; i++) {
+
+        let table = document.createElement("table");
+        let name = document.createElement("p");
+        let type = document.createElement("p");
+        let shelfLife = document.createElement("p");
+        let number = document.createElement("p");
+
+        // loop for table settings
+        if (i % 2 == 0) {
+            table.classList.add("odd");
+        } else {
+            table.classList.add("even");
+        }
+
+        // Number for tables where dice > data
+
+        if (randomByType.length / dice < 1) {
+            // Setting number 1
+            if (i == 0) {
+                low = Math.floor(((randomByType.length / dice) + 1 + i));
+            }
+            // Setting table number for > 1
+            else {
+                low = high + 1;
+            }
+            high = Math.ceil(((randomByType.length / dice) + 1 + i) * (dice / randomByChoice.length) - 1);
+            number.innerHTML = low;
+            number.innerHTML += " - ";
+
+            if (high <= dice) {
+                number.innerHTML += high;
+
+            }
+            // Setting last number 
+            if (high > dice) {
+
+                number.innerHTML += dice;
+            }
+            table.appendChild(number);
+
+
+            // Number for tables where dice < data
+
+        } else {
+            number.innerHTML = i + 1;
+            table.appendChild(number);
+        }
+        name.innerHTML = randomByChoice[i].name;
+        table.appendChild(name);
+        name.classList.add('title');
+
+        type.innerHTML = randomByChoice[i].type;
+        table.appendChild(type);
+
+        shelfLife.innerHTML = randomByChoice[i].shelfLife;
+        table.appendChild(shelfLife);
+
+        // loop through biomes
+        for (j = 0; j < randomByChoice[i].biomes.length; j++) {
+            let biomes = document.createElement("p");
+
+            // Places a check if in biome
+            if (randomByChoice[i].biomes[j] == "y") {
+                biomes.innerHTML = "<img src=\"../images/greenc.png\" width=\"25px\" height=\"25px\" >";
+            }
+            // Places an x if not in biome
+            else {
+                biomes.innerHTML = "<img src=\"../images/redx.png\" width=\"25px\" height=\"25px\" >";
+            }
+            table.appendChild(biomes);
+
+
+            foodDisplayRandom.appendChild(table);
+        }
+    }
+}
+
+
+
 
 function foodTable() {
 
