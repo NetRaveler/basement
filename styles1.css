@@ -85,7 +85,7 @@
         margin-bottom: 1em;
         color: rgb(0, 0, 0);
         font-size: 16px;
-        overflow: scroll;
+        overflow: auto;
     }
     /* Styling the RIGHT tabs */
     

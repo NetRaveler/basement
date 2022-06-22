@@ -6,9 +6,90 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../styles1.css">
+    <script src="../script/player.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <!-- <script src="../script/numberGenerator.js"></script> -->
+    <script src="../script/nav.js"></script>
+
+
+
+
+
 </head>
 
 <body>
+    <!-- // Accessing Master list // Several dropdown menus to determine DB query // roll dice or randomly determine animals available for hunting /* Cooking vegetable object: biome -->
+    <!-- Tab System-->
+    <div class="bookcontent"></div>
+
+    <div class="tabs">
+        <div class="lefttabs">
+            <nav1>
+                <a href="#invtab">Iventory</a>
+            </nav1>
+        </div>
+        <div class="righttabs">
+            <nav>
+                <a href="#searchtab">Search</a>
+
+            </nav>
+        </div>
+
+        <!-- Book Left Side-->
+    </div>
+    <div class="booksides">
+        <div class="bookleft">
+            <div class="contentleft" id="invtab">
+                <h2>Player Inventory</h2>
+
+            </div>
+        </div>
+
+        <!-- Book Right Side-->
+
+        <!-- Vegetables-->
+        <div class="bookright" id="bookright">
+
+            <div class="content" id="searchtab">
+                <h2>Search</h2>
+                <form id="ranForm">
+                    <input type="search">
+                    <select name="biome" id="selectBiome">
+                        <option value="all">All</option>
+                        <option value="0">Arctic</option>
+                        <option value="1">Coastal</option>
+                        <option value="2">Desert</option>
+                        <option value="3">Forest</option>
+                        <option value="4">Grassland</option>
+                        <option value="5">Hill</option>
+                        <option value="6">Mountain</option>
+                        <option value="7">Swamp</option>
+                        <option value="8">Underdark</option>
+                        <option value="9">Urban</option>
+                    </select>
+
+                    <select name="type" id="selectType">
+                        <option value="all">All</option>
+                        <option value="Fruit">Fruit</option>
+                        <option value="Hunting">Hunting</option>
+                        <option value="Vegetable">Vegetables</option>
+
+                    </select>
+
+                    <input type="checkbox" id="selectSort">Sortable
+                    <input type="button" id="submit" value="Search">
+                </form>
+                <div class="foodheader">
+                    <p id="312" class="title">Name</p>
+                    <p id="313">Type</p>
+                    <p id="310">Shelf Life</p>
+                </div>
+                <div id="DisplaySearch">
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 
