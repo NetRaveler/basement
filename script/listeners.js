@@ -1,4 +1,4 @@
-function listen() {
+function dmListen() {
     document.querySelector('#zoomin').addEventListener('click', () => {
         document.querySelector('#bookright').classList.add('zoomin');
 
@@ -152,7 +152,21 @@ function listen() {
         randomCart();
     });
 }
-export { listen }
 
+function playerListen() {
+
+    document.getElementById("312").addEventListener("click", function() {
+        palphaSort(this.id)
+    });
+    document.getElementById("313").addEventListener("click", function() {
+        ptypeSort(this.id)
+    });
+    document.getElementById("submit").addEventListener("click", function() {
+        searchCart();
+    });
+}
+
+export { dmListen, playerListen }
+import { searchCart } from '/script/playerSearch.js';
 import { randomCart } from '/script/randomTable.js';
-import { alphaSort, typeSort, biomeSort } from '/script/sort.js';
+import { alphaSort, typeSort, biomeSort, palphaSort, ptypeSort } from '/script/sort.js';

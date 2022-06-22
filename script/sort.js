@@ -1,10 +1,11 @@
 // Sort food table when Listening even is triggered
 import { foodTable } from '/script/foodTable.js';
+import { searchTable, searchByChoice } from '/script/playerSearch.js';
 import { randomTable, randomByChoice } from '/script/randomTable.js';
 import { vegfood, fruitfood, huntfood } from '/script/foodSource.js';
 
+// Sort for DM page
 function alphaSort() {
-
     vegfood.sort((a, b) => a.name.localeCompare(b.name));
     fruitfood.sort((a, b) => a.name.localeCompare(b.name));
     huntfood.sort((a, b) => a.name.localeCompare(b.name));
@@ -68,4 +69,26 @@ function move(arr, oldLocation) {
 
 }
 
-export { alphaSort, typeSort, biomeSort };
+//Sort for Player page
+
+
+function palphaSort() {
+    vegfood.sort((a, b) => a.name.localeCompare(b.name));
+    fruitfood.sort((a, b) => a.name.localeCompare(b.name));
+    huntfood.sort((a, b) => a.name.localeCompare(b.name));
+    if (document.getElementById("selectSort").checked == true) {
+        searchByChoice.sort((a, b) => a.name.localeCompare(b.name));
+    }
+    searchTable();
+
+}
+
+function ptypeSort() {
+
+    if (document.getElementById("selectSort").checked == true) {
+        searchByChoice.sort((a, b) => a.type.localeCompare(b.type));
+    }
+    searchTable();
+}
+
+export { alphaSort, typeSort, biomeSort, palphaSort, ptypeSort };
