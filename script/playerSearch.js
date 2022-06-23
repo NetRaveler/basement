@@ -4,7 +4,10 @@ let searchByChoice = [];
 let searchByBiome = [];
 let searchByType = [];
 
+
 function searchCart() {
+    let search = document.getElementById("search").value.toLowerCase();
+
     searchByChoice = [];
     searchByBiome = [];
     searchByType = [];
@@ -49,15 +52,30 @@ function searchCart() {
     if (type != "all") {
         for (let t = 0; t < searchByBiome.length; t++) {
             if (searchByBiome[t].type == type) {
-                searchByChoice.splice(0, 0, searchByBiome[t]);
+                searchByType.splice(0, 0, searchByBiome[t]);
 
             }
         }
     } else if ((type == "all")) {
         for (let t = 0; t < searchByBiome.length; t++) {
-            searchByChoice.splice(0, 0, searchByBiome[t]);
+            searchByType.splice(0, 0, searchByBiome[t]);
 
 
+        }
+    }
+
+    // Take input from user, compare with available options
+    // searchByType[];
+    if (search != "") {
+        for (let i = 0; i < searchByType.length; i++) {
+            if (searchByType[i].name.toLowerCase().includes(search)) {
+                searchByChoice.splice(0, 0, searchByType[i]);
+            }
+
+        }
+    } else if (search == "") {
+        for (let t = 0; t < searchByType.length; t++) {
+            searchByChoice.splice(0, 0, searchByType[t]);
         }
     }
 

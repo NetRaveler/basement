@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../styles1.css">
-    <script src="../script/player.js" type="module"></script>
+    <script src="../script/playerPage.js" type="module"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <!-- <script src="../script/numberGenerator.js"></script> -->
     <script src="../script/nav.js"></script>
@@ -53,9 +53,9 @@
 
             <div class="content" id="searchtab">
                 <h2>Search</h2>
-                <form id="ranForm">
-                    <input type="search">
-                    <select name="biome" id="selectBiome">
+
+                <input type="text" id="search">
+                <select name="biome" id="selectBiome">
                         <option value="all">All</option>
                         <option value="0">Arctic</option>
                         <option value="1">Coastal</option>
@@ -69,7 +69,7 @@
                         <option value="9">Urban</option>
                     </select>
 
-                    <select name="type" id="selectType">
+                <select name="type" id="selectType">
                         <option value="all">All</option>
                         <option value="Fruit">Fruit</option>
                         <option value="Hunting">Hunting</option>
@@ -77,9 +77,9 @@
 
                     </select>
 
-                    <input type="checkbox" id="selectSort">Sortable
-                    <input type="button" id="submit" value="Search">
-                </form>
+                <input type="checkbox" id="selectSort">Sortable
+                <input type="button" id="submit" value="Search">
+
                 <div class="foodheader">
                     <p id="312" class="title">Name</p>
                     <p id="313">Type</p>

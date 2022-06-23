@@ -16,7 +16,6 @@ function foodTable() {
 
         let table = document.createElement("table");
         let name = document.createElement("p");
-        let type = document.createElement("p");
         let shelfLife = document.createElement("p");
 
         // loop for table settings

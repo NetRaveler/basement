@@ -164,9 +164,14 @@ function playerListen() {
     document.getElementById("submit").addEventListener("click", function() {
         searchCart();
     });
+    document.getElementById('search').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            searchCart();
+        }
+    });
 }
 
-export { dmListen, playerListen }
+export { dmListen, playerListen };
 import { searchCart } from '/script/playerSearch.js';
 import { randomCart } from '/script/randomTable.js';
 import { alphaSort, typeSort, biomeSort, palphaSort, ptypeSort } from '/script/sort.js';
