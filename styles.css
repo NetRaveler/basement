@@ -1,126 +1,349 @@
-<style>body {
-    background: #ccc;
-    font-family: 'Roboto', sans-serif;
-}
+                body {
+                    background: rgb(138, 137, 116);
+                    font-family: 'Roboto', sans-serif;
+                    padding-top: 25px;
+                }
+                
+                h2 {
+                    font-size: 24px;
+                }
+                
+                .leftHeader {
+                    font-size: 24px;
+                    padding-left: 30px;
+                }
+                /* Book */
+                
+                .bookcontent {
+                    min-width: 1500px;
+                    width: 97%;
+                    z-index: 1;
+                    position: absolute;
+                }
+                
+                .booksides {
+                    min-width: 1500px;
+                    width: 100%;
+                    padding-left: 20px;
+                    display: flex;
+                    justify-content: center;
+                }
+                
+                .bookleft {
+                    background-image: url("../images/newbook/bookleftcenterbg.png");
+                    background-repeat: no-repeat;
+                    background-size: 100% 100%;
+                    padding-top: 100px;
+                    min-width: 300px;
+                    width: 45%;
+                    position: relative;
+                    z-index: 2;
+                }
+                
+                .bookleft img {
+                    display: flex;
+                    position: relative;
+                }
+                
+                .bookright {
+                    background-image: url("../images/newbook/bookrightcenterbg.png");
+                    background-repeat: no-repeat;
+                    background-size: 100% 100%;
+                    padding-top: 100px;
+                    padding-left: 60px;
+                    min-width: 300px;
+                    width: 48%;
+                    position: relative;
+                    z-index: 2;
+                }
+                /* Setting Tabs */
+                
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                }
+                
+                .tabs {
+                    min-width: 1500px;
+                    width: 100%;
+                    display: flex;
+                    position: absolute;
+                    justify-content: right;
+                    z-index: 10;
+                }
+                
+                .righttabs {
+                    z-index: 10;
+                    transform: rotate(90deg) translate(385px, -255px);
+                }
+                
+                .lefttabs {
+                    width: 165px;
+                    position: relative;
+                    display: flex;
+                    z-index: 10;
+                    transform: rotate(-90deg) translate(-450px);
+                }
+                /*RIGHT SIDE */
+                
+                nav,
+                .content {
+                    min-width: 600px;
+                }
+                /* Setting Content in Tabs */
+                
+                .content {
+                    min-height: 68vh;
+                    max-height: 68vh;
+                    margin-left: -60px;
+                    margin-right: -50px;
+                    display: block;
+                    margin-bottom: 1em;
+                    color: rgb(0, 0, 0);
+                    font-size: 16px;
+                    overflow: auto;
+                    max-width: 680px;
+                    min-width: 300px;
+                }
+                /* Styling the RIGHT tabs */
+                
+                nav {
+                    position: relative;
+                    padding-left: 1.3em;
+                }
+                
+                nav>a {
+                    position: relative;
+                    width: 10em;
+                    display: inline-block;
+                    padding: 0.7em 2em 0.5em;
+                    color: #fff;
+                    text-decoration: none;
+                    margin: 0 -0.3em;
+                }
+                
+                nav>a::before {
+                    border: 0.2em none #fff;
+                }
+                
+                nav a::before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    z-index: -1;
+                    border-bottom: none;
+                    border-radius: 0.4em 0.4em 0 0;
+                    background: #4cb47d;
+                    transform: scale(1.2, 1.3) perspective(0.5em) rotateX(5deg);
+                    transform-origin: bottom;
+                }
+                
+                nav a.active {
+                    z-index: 2;
+                }
+                
+                nav a.active::before {
+                    background-color: #2e6d4b;
+                    margin-bottom: -0.08em;
+                }
+                /*LEFT SIDE 
 
-h2 {
-    font-size: 24px;
-}
 
-
-/* Setting Tabs */
-
-.tabs {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 95%;
-    margin: 50px;
-    padding: 25px;
-}
-
-.tabs input[type="radio"] {
-    display: none;
-}
-
-
-/* Inactive Tabs */
-
-.tabs label {
-    padding: 15px;
-    background: #e2e2e2;
-    font-weight: bold;
-    font-size: 20px;
-}
-
-
-/* Active Tab */
-
-.tabs .tab {
-    width: 100%;
-    padding: 20px;
-    background: rgb(230, 171, 45);
-    order: 1;
-    display: none;
-    white-space: nowrap;
-    overflow-x: scroll;
-}
-
-.tabs input[type='radio']:checked+label+.tab {
-    display: block;
-}
-
-.tabs input[type="radio"]:checked+label {
-    background: rgb(230, 171, 45);
-}
-
-
-/* Food Table Header */
-
-.foodheader {
-    display: flex;
-    flex-direction: row;
-    //width: 100%;
-    justify-content: left;
-}
-
-.foodheader p {
-    border: 1px solid black;
-    width: 160px;
-    font-size: 28px;
-    font-style: italic;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    background-color: #ffffff;
-}
-
-
-/* Table settings */
-
-.odd {
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
-    width: 100%;
-}
-
-.odd p {
-    border: 1px solid black;
-    width: 160px;
-    font-size: 24px;
-    display: flex;
-    justify-content: center;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    background-color: #a7a4a1;
-}
-
-.even {
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
-    width: 100%;
-}
-
-.even p {
-    border: 1px solid black;
-    width: 160px;
-    font-size: 24px;
-    display: flex;
-    justify-content: center;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    background-color: #585858;
-}
-
-.green {
-    color: green;
-}
-
-.red {
-    color: red;
-}
-
-</style>
+    /* Styling the LEFT tabs */
+                
+                nav1,
+                .contentleft {
+                    min-width: 600px;
+                }
+                
+                .contentleft {
+                    max-width: 550px;
+                    min-width: 300px;
+                    display: block;
+                    margin-bottom: 1em;
+                    color: rgb(0, 0, 0);
+                    font-size: 16px;
+                }
+                
+                nav1 {
+                    position: relative;
+                    padding-left: 1.3em;
+                }
+                
+                nav1>a {
+                    position: relative;
+                    width: 10em;
+                    display: inline-block;
+                    padding: 0.7em 2em 0.5em;
+                    color: #fff;
+                    text-decoration: none;
+                    margin: 0 -0.3em;
+                }
+                
+                nav1>a::before {
+                    border: 0.2em none #fff;
+                }
+                
+                nav1 a::before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    z-index: -1;
+                    border-bottom: none;
+                    border-radius: 0.4em 0.4em 0 0;
+                    background: #ecba8a;
+                    transform: scale(1.2, 1.3) perspective(0.5em) rotateX(5deg);
+                    transform-origin: bottom;
+                }
+                
+                nav1 a.active {
+                    z-index: 2;
+                }
+                
+                nav1 a.active::before {
+                    background-color: #be721a;
+                    margin-bottom: -0.08em;
+                }
+                /* Food Table Header */
+                
+                .foodheader {
+                    display: flex;
+                    flex-direction: row;
+                    width: 100%;
+                    justify-content: left;
+                    position: sticky;
+                    top: 30px;
+                    z-index: 3;
+                }
+                
+                .foodheader p {
+                    border: 1px solid black;
+                    min-width: 98px;
+                    font-size: 15px;
+                    font-style: italic;
+                    font-weight: bold;
+                    display: flex;
+                    justify-content: center;
+                    margin-top: 0px;
+                    margin-bottom: 0px;
+                    color: black;
+                    background-color: #ffffff;
+                }
+                
+                p.title {
+                    position: sticky;
+                    left: 0px;
+                }
+                /* Table settings */
+                
+                .odd {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: left;
+                    width: 100%;
+                }
+                
+                .odd p {
+                    border: 1px solid black;
+                    min-width: 98px;
+                    font-size: 14px;
+                    display: flex;
+                    justify-content: center;
+                    margin-top: 0px;
+                    margin-bottom: 0px;
+                    background-color: #a7a4a1;
+                }
+                
+                .even {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: left;
+                    width: 100%;
+                }
+                
+                .even p {
+                    border: 1px solid black;
+                    min-width: 98px;
+                    font-size: 14px;
+                    display: flex;
+                    justify-content: center;
+                    margin-top: 0px;
+                    margin-bottom: 0px;
+                    background-color: #585858;
+                }
+                /* Zoom */
+                
+                .zoom {
+                    width: 85%;
+                    display: flex;
+                    justify-content: right;
+                }
+                
+                .zoomin {
+                    position: relative;
+                    min-width: 52.20%;
+                    max-width: 52.20%;
+                }
+                
+                .zoomincontent {
+                    max-width: 120%;
+                    min-width: 120%;
+                }
+                
+                .zoomoutleft {
+                    min-width: 10%;
+                    max-width: 10%;
+                }
+                /* DC EXAMPLES TABLES */
+                
+                .dcetable {
+                    width: 250px;
+                    padding-left: 15px;
+                }
+                
+                .dcetableheader {
+                    font-weight: bold;
+                }
+                
+                .dcetabletitle {
+                    padding-left: 15px;
+                    font-weight: bold;
+                }
+                
+                .dcetableg {
+                    padding-left: 15px;
+                    background: rgb(212, 218, 184);
+                }
+                
+                .dcetablen {
+                    padding-left: 15px;
+                }
+                /* PLAYER INVENTORY */
+                
+                .inventory {
+                    width: 100%;
+                }
+                
+                .inventory table {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: left;
+                    width: 100%;
+                }
+                
+                .inventory p {
+                    border: 1px solid black;
+                    min-width: 98px;
+                    font-size: 14px;
+                    display: flex;
+                    justify-content: center;
+                    margin-top: 0px;
+                    margin-bottom: 0px;
+                }

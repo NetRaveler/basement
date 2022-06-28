@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../styles1.css">
+    <link rel="stylesheet" href="../styles.css">
     <script src="../script/playerPage.js" type="module"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <!-- <script src="../script/numberGenerator.js"></script> -->
@@ -23,12 +23,13 @@
     <!-- Tab System-->
     <div class="bookcontent"></div>
 
+
+    <div class="lefttabs">
+        <nav1>
+            <a href="#invtab">Iventory</a>
+        </nav1>
+    </div>
     <div class="tabs">
-        <div class="lefttabs">
-            <nav1>
-                <a href="#invtab">Iventory</a>
-            </nav1>
-        </div>
         <div class="righttabs">
             <nav>
                 <a href="#searchtab">Search</a>
@@ -39,16 +40,21 @@
         <!-- Book Left Side-->
     </div>
     <div class="booksides">
+        <img src="../images/newbook/bookleftside.png">
         <div class="bookleft">
             <div class="contentleft" id="invtab">
                 <h2>Player Inventory</h2>
 
             </div>
+            <div id="DisplayIventory" class="inventory">
+            </div>
         </div>
+
+        <img src="../images/newbook/bookleftcenter.png">
 
         <!-- Book Right Side-->
 
-        <!-- Vegetables-->
+        <img src="../images/newbook/bookrightcenter.png">
         <div class="bookright" id="bookright">
 
             <div class="content" id="searchtab">
@@ -84,11 +90,14 @@
                     <p id="312" class="title">Name</p>
                     <p id="313">Type</p>
                     <p id="310">Shelf Life</p>
+                    <p>Qty</p>
                 </div>
                 <div id="DisplaySearch">
                 </div>
             </div>
+
         </div>
+        <img src="../images/newbook/bookrightside.png">
     </div>
 
 </body>

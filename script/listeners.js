@@ -1,14 +1,17 @@
 function dmListen() {
+
     document.querySelector('#zoomin').addEventListener('click', () => {
         document.querySelector('#bookright').classList.add('zoomin');
-
+        document.querySelector('#bookleft').classList.add('zoomoutleft');
+        document.querySelector('.content').classList.add('zoomincontent');
         document.getElementById('zoomout').style.visibility = 'visible';
         document.getElementById('zoomin').style.visibility = 'hidden';
 
     });
     document.querySelector('#zoomout').addEventListener('click', () => {
         document.querySelector('#bookright').classList.remove('zoomin');
-
+        document.querySelector('#bookleft').classList.remove('zoomoutleft');
+        document.querySelector('.content').classList.remove('zoomincontent');
         document.getElementById('zoomout').style.visibility = 'hidden';
         document.getElementById('zoomin').style.visibility = 'visible';
     });
