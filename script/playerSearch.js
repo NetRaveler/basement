@@ -157,7 +157,7 @@ function searchTable() {
 
         DisplaySearch.appendChild(table);
 
-        document.getElementById(searchByChoice[i].name + "add").addEventListener("click", function(a) {
+        document.getElementById(searchByChoice[i].name + "add").addEventListener("click", function(q, s) {
             addIventory(qty);
         });
     }

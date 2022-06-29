@@ -172,9 +172,13 @@ function playerListen() {
             searchCart();
         }
     });
+    document.getElementById('longRest').addEventListener("click", function() {
+        longRest();
+    });
 }
 
 export { dmListen, playerListen };
 import { searchCart } from '/script/playerSearch.js';
 import { randomCart } from '/script/randomTable.js';
 import { alphaSort, typeSort, biomeSort, palphaSort, ptypeSort } from '/script/sort.js';
+import { longRest } from "/script/playerInventory.js";
