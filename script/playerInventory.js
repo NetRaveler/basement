@@ -40,8 +40,10 @@ function addIventory(q) {
         let name = document.createElement("p");
         let type = document.createElement("p");
         let shelfLife = document.createElement("p");
-        let days = document.createElement("p");
+        let expire = document.createElement("p");
         let qty = document.createElement("p");
+
+        qty.id = ('Qty' + i)
         qty.classList.add('Qty' + i);
 
 
@@ -57,26 +59,9 @@ function addIventory(q) {
         type.innerHTML = playerInventory[i].type;
         table.appendChild(type);
 
-        shelfLife.innerHTML = parseInt(playerInventory[i].shelfLife) * parseInt(playerInventory[i].qty);
-        table.appendChild(shelfLife);
-        days.id = "days" + i;
-
-        // if (daysLeft == "") {
-        days.innerHTML = parseInt(playerInventory[i].shelfLife);
-
-        // } else {
-
-        //     for (let j = 0; j < daysLeft.length; j++) {
-        //         if (daysLeftId[j] == playerInventory[i].name) {
-        //             days.innerHTML = parseInt(daysLeft[j]);
-        //         } else
-        //             days.innerHTML = parseInt(playerInventory[i].shelfLife)
-
-
-        //     }
-        // }
-
-        table.appendChild(days);
+        expire.id = "days" + i;
+        expire.innerHTML = parseInt(playerInventory[i].expire);
+        table.appendChild(expire);
 
 
         shelfLife.innerHTML = parseInt(playerInventory[i].shelfLife) * parseInt(playerInventory[i].qty);
@@ -99,12 +84,25 @@ function addIventory(q) {
 function longRest() {
 
     for (let i = 0; i < playerInventory.length; i++) {
+        if (playerInventory[i].expire > 0) {
+            playerInventory[i].expire = playerInventory[i].expire - 1;
+            document.getElementById('days' + i).innerHTML = playerInventory[i].expire;
 
-        document.getElementById('days' + i).innerHTML = parseInt(document.getElementById('days' + i).innerHTML) - 1;
-        daysLeft[i] = parseInt(document.getElementById('days' + i).innerHTML);
-        daysLeftId[i] = playerInventory[i].name;
+        }
+        if (playerInventory[i].expire == 0 && playerInventory[i].qty >= 1) {
+            playerInventory[i].expire = playerInventory[i].shelfLife;
+            document.getElementById('days' + i).innerHTML = playerInventory[i].expire;
 
+            playerInventory[i].qty = playerInventory[i].qty - 1;
+            document.getElementById('Qty' + i).innerHTML = 'Qty:' +
+                playerInventory[i].qty
+
+        }
+        if (playerInventory[i].qty == 0) {
+            playerInventory.splice(i, 1);
+        }
     }
+    DisplayIventory.appendChild(table);
 }
 
 
