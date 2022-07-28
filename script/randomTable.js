@@ -1,24 +1,28 @@
-import { vegfood, fruitfood, huntfood } from '/script/foodSource.js';
+import { vegfood, fruitfood, meatfood, miscfood, dairyfood, spicefood } from '/script/foodSource.js';
 
 let randomByChoice = [];
 let randomByBiome = [];
 let randomByType = [];
+let randomBySkill = [];
 
 function randomCart() {
     randomByChoice = [];
     randomByBiome = [];
     randomByType = [];
+    randomBySkill = [];
+
     let dice = document.getElementById("selectDice").value;
     let INDEX = dice.selectedIndex;
     let sort = document.getElementById("selectSort").checked;
     let biome = document.getElementById("selectBiome").value;
     let type = document.getElementById("selectType").value;
+    let skill = document.getElementById("selectSkill").value;
 
     // Sort biomes by selected
     if (biome != "all") {
-        for (let h = 0; h < huntfood.length; h++) {
-            if (huntfood[h].biomes[biome] == "y") {
-                randomByBiome.splice(0, 0, huntfood[h]);
+        for (let h = 0; h < meatfood.length; h++) {
+            if (meatfood[h].biomes[biome] == "y") {
+                randomByBiome.splice(0, 0, meatfood[h]);
             }
         }
         for (let f = 0; f < fruitfood.length; f++) {
@@ -33,9 +37,28 @@ function randomCart() {
             }
 
         }
+        for (let m = 0; m < miscfood.length; m++) {
+            if (miscfood[m].biomes[biome] == "y") {
+                randomByBiome.splice(0, 0, miscfood[m]);
+            }
+
+        }
+        for (let d = 0; d < dairyfood.length; d++) {
+            if (dairyfood[d].biomes[biome] == "y") {
+                randomByBiome.splice(0, 0, dairyfood[d]);
+            }
+
+        }
+        for (let s = 0; s < spicefood.length; s++) {
+            if (spicefood[s].biomes[biome] == "y") {
+                randomByBiome.splice(0, 0, spicefood[s]);
+            }
+
+        }
+
     } else if ((biome == "all")) {
-        for (let h = 0; h < huntfood.length; h++) {
-            randomByBiome.splice(0, 0, huntfood[h]);
+        for (let h = 0; h < meatfood.length; h++) {
+            randomByBiome.splice(0, 0, meatfood[h]);
 
         }
         for (let f = 0; f < fruitfood.length; f++) {
@@ -45,6 +68,15 @@ function randomCart() {
 
         for (let v = 0; v < vegfood.length; v++) {
             randomByBiome.splice(0, 0, vegfood[v]);
+        }
+        for (let m = 0; m < miscfood.length; m++) {
+            randomByBiome.splice(0, 0, miscfood[m]);
+        }
+        for (let d = 0; d < dairyfood.length; d++) {
+            randomByBiome.splice(0, 0, dairyfood[d]);
+        }
+        for (let s = 0; s < spicefood.length; s++) {
+            randomByBiome.splice(0, 0, spicefood[s]);
         }
     }
     // Sort type by selected
@@ -62,18 +94,35 @@ function randomCart() {
 
         }
     }
+
+    // Sort skill by selected
+    if (skill != "all") {
+        for (let s = 0; s < randomByType.length; s++) {
+            if (randomByType[s].skill == skill) {
+                randomBySkill.splice(0, 0, randomByType[s]);
+
+            }
+        }
+    } else if ((skill == "all")) {
+        for (let s = 0; s < randomByType.length; s++) {
+            randomBySkill.splice(0, 0, randomByType[s]);
+
+
+        }
+    }
+
     // Set size based on dice selected
-    randomByType.sort((() => Math.random() - 0.5));
-    let low = Math.floor((randomByType.length / dice) - 1);
-    let high = Math.ceil((randomByType.length / dice) + 1);
+    randomBySkill.sort((() => Math.random() - 0.5));
+    let low = Math.floor((randomBySkill.length / dice) - 1);
+    let high = Math.ceil((randomBySkill.length / dice) + 1);
 
     // if table data is less than dice and 
-    if (randomByType.length / dice < 1 && dice / randomByType.length > 1) {
-        randomByChoice = Array.from({ length: randomByType.length }, (_, idx) => randomByType[idx % randomByType.length]);
+    if (randomBySkill.length / dice < 1 && dice / randomBySkill.length > 1) {
+        randomByChoice = Array.from({ length: randomBySkill.length }, (_, idx) => randomBySkill[idx % randomBySkill.length]);
     }
     // if table data is more than dice
     else {
-        randomByChoice = Array.from({ length: dice }, (_, idx) => randomByType[idx % randomByType.length]);
+        randomByChoice = Array.from({ length: dice }, (_, idx) => randomBySkill[idx % randomBySkill.length]);
     }
 
     randomTable()
@@ -87,7 +136,7 @@ function randomTable() {
 
     // if table data is less than dice, Set loop counter
 
-    if (randomByType.length / dice < 1 && dice / randomByType.length > 1) {
+    if (randomBySkill.length / dice < 1 && dice / randomBySkill.length > 1) {
         count = randomByChoice.length;
         // if table data is more than dice, Set Loop Counter
     } else {
@@ -100,6 +149,7 @@ function randomTable() {
         let table = document.createElement("table");
         let name = document.createElement("p");
         let type = document.createElement("p");
+        let skill = document.createElement("p");
         let shelfLife = document.createElement("p");
         let number = document.createElement("p");
 
@@ -112,16 +162,16 @@ function randomTable() {
 
         // Number for tables where dice > data
 
-        if (randomByType.length / dice < 1) {
+        if (randomBySkill.length / dice < 1) {
             // Setting number 1
             if (i == 0) {
-                low = Math.floor(((randomByType.length / dice) + 1 + i));
+                low = Math.floor(((randomBySkill.length / dice) + 1 + i));
             }
             // Setting table number for > 1
             else {
                 low = high + 1;
             }
-            high = Math.ceil(((randomByType.length / dice) + 1 + i) * (dice / randomByChoice.length) - 1);
+            high = Math.ceil(((randomBySkill.length / dice) + 1 + i) * (dice / randomByChoice.length) - 1);
             number.innerHTML = low;
             number.innerHTML += " - ";
 
@@ -150,8 +200,19 @@ function randomTable() {
         type.innerHTML = randomByChoice[i].type;
         table.appendChild(type);
 
-        shelfLife.innerHTML = randomByChoice[i].shelfLife;
-        table.appendChild(shelfLife);
+        skill.innerHTML = randomByChoice[i].skill;
+        table.appendChild(skill);
+
+
+        if (randomByChoice[i].shelfLife != 0) {
+            shelfLife.innerHTML = randomByChoice[i].shelfLife;
+            table.appendChild(shelfLife);
+        }
+        if (randomByChoice[i].shelfLife == "na") {
+            shelfLife.innerHTML = "";
+            table.appendChild(shelfLife);
+        }
+
 
         // loop through biomes
         for (let j = 0; j < randomByChoice[i].biomes.length; j++) {
@@ -169,7 +230,12 @@ function randomTable() {
 
 
             foodDisplayRandom.appendChild(table);
+
         }
     }
+
 }
+
+
+
 export { randomCart, randomTable, randomByChoice };

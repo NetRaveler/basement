@@ -1,9 +1,10 @@
-import { vegfood, fruitfood, huntfood } from '/script/foodSource.js';
+import { vegfood, fruitfood, meatfood, miscfood, dairyfood, spicefood } from '/script/foodSource.js';
 import { addIventory } from "/script/playerInventory.js"
 
 let searchByChoice = [];
 let searchByBiome = [];
 let searchByType = [];
+let searchBySkill = [];
 
 
 function searchCart() {
@@ -12,15 +13,18 @@ function searchCart() {
     searchByChoice = [];
     searchByBiome = [];
     searchByType = [];
+    searchBySkill = [];
     let sort = document.getElementById("selectSort").checked;
     let biome = document.getElementById("selectBiome").value;
     let type = document.getElementById("selectType").value;
+    let skill = document.getElementById("selectSkill").value;
+
 
     // Sort biomes by selected
     if (biome != "all") {
-        for (let h = 0; h < huntfood.length; h++) {
-            if (huntfood[h].biomes[biome] == "y") {
-                searchByBiome.splice(0, 0, huntfood[h]);
+        for (let h = 0; h < meatfood.length; h++) {
+            if (meatfood[h].biomes[biome] == "y") {
+                searchByBiome.splice(0, 0, meatfood[h]);
             }
         }
         for (let f = 0; f < fruitfood.length; f++) {
@@ -35,9 +39,27 @@ function searchCart() {
             }
 
         }
+        for (let m = 0; m < miscfood.length; m++) {
+            if (miscfood[m].biomes[biome] == "y") {
+                searchByBiome.splice(0, 0, miscfood[m]);
+            }
+
+        }
+        for (let d = 0; d < dairyfood.length; d++) {
+            if (dairyfood[d].biomes[biome] == "y") {
+                searchByBiome.splice(0, 0, dairyfood[d]);
+            }
+
+        }
+        for (let s = 0; s < spicefood.length; s++) {
+            if (spicefood[s].biomes[biome] == "y") {
+                searchByBiome.splice(0, 0, spicefood[s]);
+            }
+
+        }
     } else if ((biome == "all")) {
-        for (let h = 0; h < huntfood.length; h++) {
-            searchByBiome.splice(0, 0, huntfood[h]);
+        for (let h = 0; h < meatfood.length; h++) {
+            searchByBiome.splice(0, 0, meatfood[h]);
 
         }
         for (let f = 0; f < fruitfood.length; f++) {
@@ -47,6 +69,15 @@ function searchCart() {
 
         for (let v = 0; v < vegfood.length; v++) {
             searchByBiome.splice(0, 0, vegfood[v]);
+        }
+        for (let m = 0; m < miscfood.length; m++) {
+            searchByBiome.splice(0, 0, miscfood[m]);
+        }
+        for (let d = 0; d < dairyfood.length; d++) {
+            searchByBiome.splice(0, 0, dairyfood[d]);
+        }
+        for (let s = 0; s < spicefood.length; s++) {
+            searchByBiome.splice(0, 0, spicefood[s]);
         }
     }
     // Sort type by selected
@@ -65,18 +96,34 @@ function searchCart() {
         }
     }
 
+    // Sort skill by selected
+    if (skill != "all") {
+        for (let s = 0; s < searchByType.length; s++) {
+            if (searchByType[s].skill == skill) {
+                searchBySkill.splice(0, 0, searchByType[s]);
+
+            }
+        }
+    } else if ((skill == "all")) {
+        for (let s = 0; s < searchByType.length; s++) {
+            searchBySkill.splice(0, 0, searchByType[s]);
+
+
+        }
+    }
+
     // Take input from user, compare with available options
     // searchByType[];
     if (search != "") {
-        for (let i = 0; i < searchByType.length; i++) {
-            if (searchByType[i].name.toLowerCase().includes(search)) {
-                searchByChoice.splice(0, 0, searchByType[i]);
+        for (let i = 0; i < searchBySkill.length; i++) {
+            if (searchBySkill[i].name.toLowerCase().includes(search)) {
+                searchByChoice.splice(0, 0, searchBySkill[i]);
             }
 
         }
     } else if (search == "") {
-        for (let t = 0; t < searchByType.length; t++) {
-            searchByChoice.splice(0, 0, searchByType[t]);
+        for (let t = 0; t < searchBySkill.length; t++) {
+            searchByChoice.splice(0, 0, searchBySkill[t]);
         }
     }
 
@@ -93,6 +140,7 @@ function searchTable() {
         let table = document.createElement("table");
         let name = document.createElement("p");
         let type = document.createElement("p");
+        let skill = document.createElement("p");
         let shelfLife = document.createElement("p");
         let number = document.createElement("p");
         let qty = document.createElement("select");
@@ -112,8 +160,17 @@ function searchTable() {
         type.innerHTML = searchByChoice[i].type;
         table.appendChild(type);
 
-        shelfLife.innerHTML = searchByChoice[i].shelfLife;
-        table.appendChild(shelfLife);
+        skill.innerHTML = searchByChoice[i].skill;
+        table.appendChild(skill);
+
+        if (searchByChoice[i].shelfLife != 0) {
+            shelfLife.innerHTML = searchByChoice[i].shelfLife;
+            table.appendChild(shelfLife);
+        }
+        if (searchByChoice[i].shelfLife == "na") {
+            shelfLife.innerHTML = "";
+            table.appendChild(shelfLife);
+        }
 
         qty.id = searchByChoice[i].name;
         qty.options.length = 10;

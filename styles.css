@@ -75,7 +75,12 @@
                 
                 .righttabs {
                     z-index: 10;
-                    transform: rotate(90deg) translate(385px, -255px);
+                    transform: rotate(90deg) translate(400px, -315px);
+                }
+                
+                .playerrighttabs {
+                    z-index: 10;
+                    transform: rotate(90deg) translate(400px, -240px);
                 }
                 
                 .lefttabs {
@@ -115,7 +120,7 @@
                 
                 nav>a {
                     position: relative;
-                    width: 10em;
+                    width: 8em;
                     display: inline-block;
                     padding: 0.7em 2em 0.5em;
                     color: #fff;
@@ -176,7 +181,7 @@
                 
                 nav1>a {
                     position: relative;
-                    width: 10em;
+                    width: 11.5em;
                     display: inline-block;
                     padding: 0.7em 2em 0.5em;
                     color: #fff;
@@ -328,17 +333,23 @@
                 /* PLAYER INVENTORY */
                 
                 .inventory {
-                    width: 100%;
+                    width: 95%;
                 }
                 
                 .inventory table {
                     display: flex;
                     flex-direction: row;
                     justify-content: left;
-                    width: 100%;
+                    width: 95%;
                 }
                 
-                .inventory p {
+                .redx {
+                    border: 0px;
+                    display: flex;
+                    justify-content: left;
+                }
+                
+                .inventoryp {
                     border: 1px solid black;
                     min-width: 98px;
                     font-size: 14px;
@@ -346,4 +357,34 @@
                     justify-content: center;
                     margin-top: 0px;
                     margin-bottom: 0px;
+                }
+                
+                .longrest {
+                    position: absolute;
+                    bottom: 100px;
+                }
+                
+                .longRest {
+                    display: inline-block;
+                    padding: 15px 25px;
+                    font-size: 24px;
+                    cursor: pointer;
+                    text-align: center;
+                    text-decoration: none;
+                    outline: none;
+                    color: #fff;
+                    background-color: #4CAF50;
+                    border: none;
+                    border-radius: 15px;
+                    box-shadow: 0 9px #999;
+                }
+                
+                .longRest:hover {
+                    background-color: #3e8e41
+                }
+                
+                .longRest:active {
+                    background-color: #3e8e41;
+                    box-shadow: 0 5px #666;
+                    transform: translateY(4px);
                 }

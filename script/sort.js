@@ -2,13 +2,15 @@
 import { foodTable } from '/script/foodTable.js';
 import { searchTable, searchByChoice } from '/script/playerSearch.js';
 import { randomTable, randomByChoice } from '/script/randomTable.js';
-import { vegfood, fruitfood, huntfood } from '/script/foodSource.js';
+import { vegfood, fruitfood, meatfood, dairyfood, spicefood } from '/script/foodSource.js';
 
 // Sort for DM page
 function alphaSort() {
     vegfood.sort((a, b) => a.name.localeCompare(b.name));
     fruitfood.sort((a, b) => a.name.localeCompare(b.name));
-    huntfood.sort((a, b) => a.name.localeCompare(b.name));
+    meatfood.sort((a, b) => a.name.localeCompare(b.name));
+    dairyfood.sort((a, b) => a.name.localeCompare(b.name));
+    spicefood.sort((a, b) => a.name.localeCompare(b.name));
     if (document.getElementById("selectSort").checked == true) {
         randomByChoice.sort((a, b) => a.name.localeCompare(b.name));
     }
@@ -20,6 +22,14 @@ function typeSort() {
 
     if (document.getElementById("selectSort").checked == true) {
         randomByChoice.sort((a, b) => a.type.localeCompare(b.type));
+    }
+    randomTable();
+}
+
+function skillSort() {
+
+    if (document.getElementById("selectSort").checked == true) {
+        randomByChoice.sort((a, b) => a.skill.localeCompare(b.skill));
     }
     randomTable();
 }
@@ -39,10 +49,22 @@ function biomeSort(clicked_id) {
             move(fruitfood, f);
         }
     }
-    for (let h = 0; h < huntfood.length; h++) {
-        if (huntfood[h].biomes[clicked_id - 200] == "y") {
+    for (let h = 0; h < meatfood.length; h++) {
+        if (meatfood[h].biomes[clicked_id - 200] == "y") {
 
-            move(huntfood, h);
+            move(meatfood, h);
+        }
+    }
+    for (let h = 0; h < dairyfood.length; h++) {
+        if (dairyfood[h].biomes[clicked_id - 400] == "y") {
+
+            move(dairyfood, h);
+        }
+    }
+    for (let h = 0; h < spicefood.length; h++) {
+        if (spicefood[h].biomes[clicked_id - 500] == "y") {
+
+            move(spicefood, h);
         }
     }
 
@@ -73,9 +95,7 @@ function move(arr, oldLocation) {
 
 
 function palphaSort() {
-    vegfood.sort((a, b) => a.name.localeCompare(b.name));
-    fruitfood.sort((a, b) => a.name.localeCompare(b.name));
-    huntfood.sort((a, b) => a.name.localeCompare(b.name));
+
     if (document.getElementById("selectSort").checked == true) {
         searchByChoice.sort((a, b) => a.name.localeCompare(b.name));
     }
@@ -91,4 +111,12 @@ function ptypeSort() {
     searchTable();
 }
 
-export { alphaSort, typeSort, biomeSort, palphaSort, ptypeSort };
+function pskillSort() {
+
+    if (document.getElementById("selectSort").checked == true) {
+        searchByChoice.sort((a, b) => a.skill.localeCompare(b.skill));
+    }
+    searchTable();
+}
+
+export { alphaSort, typeSort, biomeSort, palphaSort, ptypeSort, skillSort, pskillSort };

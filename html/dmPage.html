@@ -31,9 +31,11 @@
         <div class="tabs">
             <div class="righttabs">
                 <nav>
-                    <a href="#vegtab">Vegetable</a>
+                    <a href="#dairytab">Dairy</a>
                     <a href="#fruittab">Fruit</a>
-                    <a href="#hunttab">Hunting</a>
+                    <a href="#meattab">Meat</a>
+                    <a href="#spicetab">Spices</a>
+                    <a href="#vegtab">Vegetable</a>
                     <a href="#randomtab">Random</a>
                 </nav>
             </div>
@@ -149,11 +151,11 @@
                         </div>
                     </div>
 
-                    <!-- Hunting-->
-                    <div class="content" id="hunttab">
-                        <h2>Master list of all hunting.</h2>
+                    <!-- Meat-->
+                    <div class="content" id="meattab">
+                        <h2>Master list of all meat.</h2>
                         <div class="foodheader">
-                            <p id="212" class="title">Hunting</p>
+                            <p id="212" class="title">Meat</p>
                             <p id="211">Shelf Life</p>
                             <p id="200">Arctic</p>
                             <p id="201">Coastal</p>
@@ -166,7 +168,48 @@
                             <p id="208">Underdark</p>
                             <p id="209">Urban</p>
                         </div>
-                        <div id="foodDisplayHunting">
+                        <div id="foodDisplayMeat">
+                        </div>
+                    </div>
+
+                    <!-- Dairy-->
+                    <div class="content" id="dairytab">
+                        <h2>Master list of all dairy.</h2>
+                        <div class="foodheader">
+                            <p id="412" class="title">Dairy</p>
+                            <p id="411">Shelf Life</p>
+                            <p id="400">Arctic</p>
+                            <p id="401">Coastal</p>
+                            <p id="402">Desert</p>
+                            <p id="403">Forest</p>
+                            <p id="404">Grassland</p>
+                            <p id="405">Hill</p>
+                            <p id="406">Mountain</p>
+                            <p id="407">Swamp</p>
+                            <p id="408">Underdark</p>
+                            <p id="409">Urban</p>
+                        </div>
+                        <div id="foodDisplayDairy">
+                        </div>
+                    </div>
+                    <!-- Spice-->
+                    <div class="content" id="spicetab">
+                        <h2>Master list of all spices.</h2>
+                        <div class="foodheader">
+                            <p id="512" class="title">Spices</p>
+                            <p id="511">Shelf Life</p>
+                            <p id="500">Arctic</p>
+                            <p id="501">Coastal</p>
+                            <p id="502">Desert</p>
+                            <p id="503">Forest</p>
+                            <p id="504">Grassland</p>
+                            <p id="505">Hill</p>
+                            <p id="506">Mountain</p>
+                            <p id="507">Swamp</p>
+                            <p id="508">Underdark</p>
+                            <p id="509">Urban</p>
+                        </div>
+                        <div id="foodDisplaySpices">
                         </div>
                     </div>
 
@@ -175,6 +218,7 @@
                         <h2>Generate a random table.</h2>
                         <form id="ranForm">
                             <select name="biome" id="selectBiome">
+                                <option value="all">Biome</option>
                         <option value="all">All</option>
                         <option value="0">Arctic</option>
                         <option value="1">Coastal</option>
@@ -189,16 +233,29 @@
                     </select>
 
                             <select name="type" id="selectType">
-                        <option value="all">All</option>
-                        <option value="Fruit">Fruit</option>
-                        <option value="Hunting">Hunting</option>
-                        <option value="Vegetable">Vegetables</option>
+                                <option value="all">Type</option>
+                                <option value="all">All</option>
+                                <option value="Dairy">Dairy</option>
+                                <option value="Fruit">Fruit</option>
+                                <option value="Meat">Meats</option>
+                                <option value="Misc">Misc</option>
+                                <option value="Spice">Spices</option>
+                                <option value="Vegetable">Vegetables</option>
 
                     </select>
+                            <select name="skill" id="selectSkill">
+                                <option value="all">Aquired By</option>
+                                <option value="all">Any</option>
+                                <option value="Foraging">Foraging</option>
+                                <option value="Hunting">Hunting</option>
+                                <option value="Purchasing">Purchasing</option>
+                        
+                    </select>
                             <select name="dice" id="selectDice">
+                                <option value="8">Dice Table Size</option>     
                         <option value="4">D4</option>
                         <option value="6">D6</option>
-                        <option value="8" selected>D8</option>
+                        <option value="8">D8</option>
                         <option value="10">D10</option>
                         <option value="12">D12</option>
                         <option value="20">D20</option>
@@ -206,14 +263,15 @@
 
                     </select>
 
-                            <input type="checkbox" id="selectSort">Sortable
-                            <input type="button" id="submit" value="Generate Table">
 
+                            <input type="button" id="submit" value="Generate Table"><br>
+                            <input type="checkbox" id="selectSort"> Sortable
                         </form>
                         <div class="foodheader">
                             <p>Rolled</p>
                             <p id="312" class="title">Name</p>
                             <p id="313">Type</p>
+                            <p id="314">Aquired By</p>
                             <p id="310">Shelf Life</p>
                             <p id="300">Arctic</p>
                             <p id="301">Coastal</p>

@@ -21,48 +21,382 @@
 <body>
     <!-- // Accessing Master list // Several dropdown menus to determine DB query // roll dice or randomly determine animals available for hunting /* Cooking vegetable object: biome -->
     <!-- Tab System-->
-    <div class="bookcontent"></div>
+    <div class="bookcontent">
 
 
-    <div class="lefttabs">
-        <nav1>
-            <a href="#invtab">Iventory</a>
-        </nav1>
-    </div>
-    <div class="tabs">
-        <div class="righttabs">
-            <nav>
-                <a href="#searchtab">Search</a>
-
-            </nav>
+        <div class="lefttabs">
+            <nav1>
+                <a href="#invtab">Inventory</a>
+                <a href="#chartab">Character Sheet</a>
+            </nav1>
         </div>
+        <div class="tabs">
+            <div class="playerrighttabs">
+                <nav>
+                    <a href="#searchtab">Search</a>
 
-        <!-- Book Left Side-->
-    </div>
-    <div class="booksides">
-        <img src="../images/newbook/bookleftside.png">
-        <div class="bookleft">
-            <div class="contentleft" id="invtab">
-                <h2>Player Inventory</h2>
+                </nav>
+            </div>
 
-            </div>
-            <div id="DisplayIventory" class="inventory">
-            </div>
-            <input type="button" id="longRest" value=" Long Rest " style="visibility:hidden">
+            <!-- Book Left Side-->
         </div>
+        <div class="booksides">
+            <img src="../images/newbook/bookleftside.png">
+            <div class="bookleft">
+                <div class="contentleft" id="invtab">
+                    <h2>Player Inventory</h2>
+                    <div class="foodheader" id="inventoryHeader" style="visibility:hidden">
+                        <p>Name</p>
+                        <p>Type</p>
+                        <p>Aquired By</p>
+                        <p>Expires</p>
+                        <p>Total Days</p>
+                        <p>Qty</p>
+                    </div>
 
-        <img src="../images/newbook/bookleftcenter.png">
+                    <div id="DisplayIventory" class="inventory">
+                    </div>
 
-        <!-- Book Right Side-->
+                </div>
+                <div class="longrest">
+                    <input type="button" id="longRest" class="longRest" value=" Long Rest " style="visibility:hidden">
+                </div>
+                <div class="contentleft" id="chartab">
+                    <h2>Character Sheet</h2>
+                    <div id="primary">
+                        <table>
+                            <tr>
+                                <td>Level</td>
+                                <td><select name="level" id="level">    
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                </td>
+                                
+                                <td>Proficiency Bonus</td>
+                                <td><input type="text" maxlength="1" size="1" id="pro"></td>
+                            </tr>
+                            </table>
+                            <table>
+                            <tr>
+                                <td>Str</td>
+                                <td>Dex</td>
+                                <td>Con</td>
+                                <td>Wis</td>
+                                <td>Int</td>
+                                <td>Cha</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <select name="strStat" id="str">    
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8" >8</option>
+                                        <option value="9">9</option>
+                                        <option value="10" selected>10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        <option value="13">13</option>
+                                        <option value="14">14</option>
+                                        <option value="15">15</option>
+                                        <option value="16">16</option>
+                                        <option value="17">17</option>
+                                        <option value="18">18</option>
+                                        <option value="19">19</option>
+                                        <option value="20">20</option>
 
-        <img src="../images/newbook/bookrightcenter.png">
-        <div class="bookright" id="bookright">
+                                    </select>
+                                </td>
+                                <td>
 
-            <div class="content" id="searchtab">
-                <h2>Search</h2>
+                                    <select name="dexStat" id="dex">    
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8" >8</option>
+                                        <option value="9">9</option>
+                                        <option value="10" selected>10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        <option value="13">13</option>
+                                        <option value="14">14</option>
+                                        <option value="15">15</option>
+                                        <option value="16">16</option>
+                                        <option value="17">17</option>
+                                        <option value="18">18</option>
+                                        <option value="19">19</option>
+                                        <option value="20">20</option>
 
-                <input type="text" id="search">
-                <select name="biome" id="selectBiome">
+                                    </select>
+                                </td>
+                                <td>
+
+                                    <select name="conStat" id="con">    
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8" >8</option>
+                                        <option value="9">9</option>
+                                        <option value="10" selected>10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        <option value="13">13</option>
+                                        <option value="14">14</option>
+                                        <option value="15">15</option>
+                                        <option value="16">16</option>
+                                        <option value="17">17</option>
+                                        <option value="18">18</option>
+                                        <option value="19">19</option>
+                                        <option value="20">20</option>
+
+                                    </select>
+                                </td>
+                                <td>
+
+                                    <select name="wisStat" id="wis">    
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8" >8</option>
+                                        <option value="9">9</option>
+                                        <option value="10" selected>10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        <option value="13">13</option>
+                                        <option value="14">14</option>
+                                        <option value="15">15</option>
+                                        <option value="16">16</option>
+                                        <option value="17">17</option>
+                                        <option value="18">18</option>
+                                        <option value="19">19</option>
+                                        <option value="20">20</option>
+
+                                    </select>
+                                </td>
+                                <td>
+
+                                    <select name="intStat" id="int">    
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8" >8</option>
+                                        <option value="9">9</option>
+                                        <option value="10" selected>10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        <option value="13">13</option>
+                                        <option value="14">14</option>
+                                        <option value="15">15</option>
+                                        <option value="16">16</option>
+                                        <option value="17">17</option>
+                                        <option value="18">18</option>
+                                        <option value="19">19</option>
+                                        <option value="20">20</option>
+
+                                    </select>
+                                </td>
+                                <td>
+
+                                    <select name="charStat" id="cha">    
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10" selected>10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="text" size="1" maxlength="2" value="0" id="strBonus">
+                                </td>
+                                <td>
+                                    <input type="text" size="1" maxlength="2" value="0" id="dexBonus">
+                                </td>
+                                <td>
+                                    <input type="text" size="1" maxlength="2" value="0" id="conBonus">
+                                </td>
+                                <td>
+                                    <input type="text" size="1" maxlength="2" value="0" id="wisBonus">
+                                </td>
+                                <td>
+                                    <input type="text" size="1" maxlength="2" value="0" id="intBonus">
+                                </td>
+                                <td>
+                                    <input type="text" size="1" maxlength="2" value="0" id="chaBonus">
+                                </td>
+                            </tr>
+                        </table>
+                        <table width=75%>
+                            <tr>
+                                <td>Prof</td>
+                                <td>Mod</td>
+                                <td>Skill</td>
+                                <td>Bonus</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" id="pacro"></td>
+                                <td>Dex</td>
+                                <td>Acrobatics</td>
+                                <td><input type="text" maxlength="2" size="1" id="acro"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" id="panimal"></td>
+                                <td>Wis</td>
+                                <td>Animal Handling</td>
+                                <td><input type="text" maxlength="2" size="1" id="animal"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" id="parcana"></td>
+                                <td>Int</td>
+                                <td>Arcana</td>
+                                <td><input type="text" maxlength="2" size="1" id="arcana"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" id="path"></td>
+                                <td>Str</td>
+                                <td>Athletics</td>
+                                <td><input type="text" maxlength="2" size="1" id="ath"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" id="pdecep"></td>
+                                <td>Cha</td>
+                                <td>Deception</td>
+                                <td><input type="text" maxlength="2" size="1" id="decep"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" id="phistory"></td>
+                                <td>Int</td>
+                                <td>History</td>
+                                <td><input type="text" maxlength="2" size="1" id="history"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" id="pinsight"></td>
+                                <td>Wis</td>
+                                <td>Insight</td>
+                                <td><input type="text" maxlength="2" size="1" id="insight"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" id="pintim"></td>
+                                <td>Cha</td>
+                                <td>Intimidation</td>
+                                <td><input type="text" maxlength="2" size="1" id="intim"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" id="pinvest"></td>
+                                <td>Int</td>
+                                <td>Investigation</td>
+                                <td><input type="text" maxlength="2" size="1" id="invest"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" id="pmedic"></td>
+                                <td>Wis</td>
+                                <td>Medicine</td>
+                                <td><input type="text" maxlength="2" size="1" id="medic"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" id="pnature"></td>
+                                <td>Int</td>
+                                <td>Nature</td>
+                                <td><input type="text" maxlength="2" size="1" id="nature"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" id="ppercep"></td>
+                                <td>Wis</td>
+                                <td>Perception</td>
+                                <td><input type="text" maxlength="2" size="1" id="percep"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" id="ppers"></td>
+                                <td>Cha</td>
+                                <td>Persuasion</td>
+                                <td><input type="text" maxlength="2" size="1" id="pers"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" id="preligion"></td>
+                                <td>Int</td>
+                                <td>Religion</td>
+                                <td><input type="text" maxlength="2" size="1" id="religion"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" id="psoh"></td>
+                                <td>Dex</td>
+                                <td>Sleight of Hand</td>
+                                <td><input type="text" maxlength="2" size="1" id="soh"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" id="pstealth"></td>
+                                <td>Dex</td>
+                                <td>Stealth</td>
+                                <td><input type="text" maxlength="2" size="1" id="stealth"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" id="psurvival"></td>
+                                <td>Wis</td>
+                                <td>Survival</td>
+                                <td><input type="text" maxlength="2" size="1" id="survival"></td>
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+            <img src="../images/newbook/bookleftcenter.png">
+
+            <!-- Book Right Side-->
+
+            <img src="../images/newbook/bookrightcenter.png">
+            <div class="bookright" id="bookright">
+
+                <div class="content" id="searchtab">
+                    <h2>Search</h2>
+
+                    <input type="text" id="search">
+                    <select name="biome" id="selectBiome">
+                    <option value="all">Biome</option>
                         <option value="all">All</option>
                         <option value="0">Arctic</option>
                         <option value="1">Coastal</option>
@@ -76,31 +410,45 @@
                         <option value="9">Urban</option>
                     </select>
 
-                <select name="type" id="selectType">
+                    <select name="type" id="selectType">
+                    <option value="all">Type</option>
                         <option value="all">All</option>
+                        <option value="Dairy">Dairy</option>
                         <option value="Fruit">Fruit</option>
-                        <option value="Hunting">Hunting</option>
+                        <option value="Meat">Meats</option>
+                        <option value="Misc">Misc</option>
+                        <option value="Spice">Spices</option>
                         <option value="Vegetable">Vegetables</option>
 
                     </select>
 
-                <input type="checkbox" id="selectSort">Sortable
-                <input type="button" id="submit" value="Search">
+                    <select name="skill" id="selectSkill">
+                        <option value="all">Aquired By</option>
+                        <option value="all">Any</option>
+                        <option value="Foraging">Foraging</option>
+                        <option value="Hunting">Hunting</option>
+                        <option value="Purchasing">Purchasing</option>
 
-                <div class="foodheader">
-                    <p id="312" class="title">Name</p>
-                    <p id="313">Type</p>
-                    <p id="310">Shelf Life</p>
-                    <p>Qty</p>
+                    </select>
+
+
+                    <input type="button" id="submit" value="Search"><br>
+                    <input type="checkbox" id="selectSort"> Sortable
+                    <div class="foodheader">
+                        <p id="312" class="title">Name</p>
+                        <p id="313">Type</p>
+                        <p id="314">Aquired By</p>
+                        <p id="310">Shelf Life</p>
+                        <p>Qty</p>
+                    </div>
+                    <div id="DisplaySearch">
+                    </div>
                 </div>
-                <div id="DisplaySearch">
-                </div>
+
             </div>
-
+            <img src="../images/newbook/bookrightside.png">
         </div>
-        <img src="../images/newbook/bookrightside.png">
     </div>
-
 </body>
 
 </html>
